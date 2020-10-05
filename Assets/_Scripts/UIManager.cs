@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject keyItem;
     [SerializeField] private GameObject paperItem;
     [SerializeField] private GameObject exitWindow;
+    [SerializeField] private GameObject exitDaemon1;
+    [SerializeField] private GameObject exitDaemon2;
 
     private void Awake()
     {
@@ -31,7 +33,34 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            exitWindow.SetActive(true);
+            if (!exitWindow.activeSelf)
+            {
+                exitWindow.SetActive(true);
+            }
+            else
+            {
+                CloseExitWindow();
+            }
+        }
+    }
+
+    public void CloseExitWindow()
+    {
+        exitDaemon1.SetActive(true);
+        exitDaemon2.SetActive(false);
+        exitWindow.SetActive(false);
+    }
+
+    public void ExitGame()
+    {
+        if (exitDaemon1.activeSelf)
+        {
+            exitDaemon2.SetActive(true);
+            exitDaemon1.SetActive(false);
+        }
+        else
+        {
+            Application.Quit();
         }
     }
 

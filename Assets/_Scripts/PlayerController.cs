@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool pushValun = false;
 
     private bool isPlaying = true;
-
+    
     private void Awake()
     {
         if (main == null)
@@ -35,8 +35,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    
-    
 
     void Update()
     {

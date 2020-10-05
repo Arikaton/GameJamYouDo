@@ -15,7 +15,9 @@ public class QTEManager : MonoBehaviour
     Queue<QTEButton> qteButtons;
 
     public bool IsPlaying = false;
-    private bool isQTEWave = false;
+    bool isQTEWave = false;
+
+    private int qteButtonCount = 0;
 
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class QTEManager : MonoBehaviour
 
     IEnumerator SpawnQTEButtons(QTEData qteData)
     {
+        qteButtonCount = qteData.orderedKeys.Length;
         isQTEWave = true;
         qteButtons = new Queue<QTEButton>();
         int buttonCount = qteData.orderedKeys.Length;
@@ -76,11 +79,7 @@ public class QTEManager : MonoBehaviour
         {
             if (qteButtons.Count == 0)
             {
-                if (isQTEWave)
-                {
-                    GameManager.main.LoseQTE();
-                }
-
+                GameManager.main.LoseQTE();
                 IsPlaying = false;
 
             }
@@ -89,9 +88,10 @@ public class QTEManager : MonoBehaviour
                 var firstButton = qteButtons.Dequeue();
                 if (firstButton.keyCode == pressedKey)
                 {
+                    qteButtonCount--;
                     firstButton.FadeOut();
                     AudioManager.main.PlaySuccessSound();
-                    if (!isQTEWave)
+                    if (qteButtonCount == 0 && !isQTEWave)
                     {
                         IsPlaying = false;
                     }

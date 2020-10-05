@@ -10,14 +10,8 @@ public class NPCManager : MonoBehaviour
     [SerializeField] private Transform valun;
     [SerializeField] private float maxHeight;
     [SerializeField] private UnityEngine.UI.Text replicaText;
+    [SerializeField] private string replica;
     [SerializeField] private GameObject replicaPanel;
-
-    private string[] replics = new string[3]
-    {
-        "538 years ago they said that i've almost done", 
-        "Could you please tell me what time it is? i suppose i am late for a ball", 
-        "I think i'm doing something wrong, but the boss is happy with everything"
-    };
 
     private Vector2 startPoint;
 
@@ -85,7 +79,7 @@ public class NPCManager : MonoBehaviour
         {
             StartCoroutine(AutoStopDialog());
             replicaPanel.SetActive(true);
-            replicaText.text = replics[Random.Range(0, replics.Length)];
+            replicaText.text = replica;
             textIsShowing = true;
             stateUpdated = false;
         }

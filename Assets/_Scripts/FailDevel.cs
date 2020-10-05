@@ -26,7 +26,7 @@ public class FailDevel : MonoBehaviour
         QTEManager.main.Reset();
         develDialog.SetActive(true);
         develAnimator.SetBool("HandsUp", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         GameManager.main.LoseQTE();
         devel.SetActive(false);
     }

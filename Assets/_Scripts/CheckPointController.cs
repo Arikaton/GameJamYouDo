@@ -9,6 +9,11 @@ public class CheckPointController : MonoBehaviour
 
     private void Start()
     {
+        ResetStartPos();
+    }
+
+    public void ResetStartPos()
+    {
         lastCheckpoint = transform.position;
     }
 
