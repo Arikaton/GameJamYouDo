@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3535088329935585752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3535088329935585753}
+  - component: {fileID: 3535088329935585756}
+  - component: {fileID: 3535088329935585755}
+  - component: {fileID: 3535088329935585754}
+  - component: {fileID: -2589508386622716768}
+  m_Layer: 5
+  m_Name: QTE Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3535088329935585753
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535088329935585752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3535088329935585756
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535088329935585752}
+  m_CullTransparentMesh: 0
+--- !u!114 &3535088329935585755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535088329935585752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 2163036573998151787, guid: 32c965796b34d01498c37afeedd2c190,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3535088329935585754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535088329935585752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205ed07e5669ef94db9c59212e5567f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSize: 0.5
+  maxSize: 1
+  growTime: 2
+  fadeTime: 1
+  sprites:
+  - {fileID: -5847012691415825743, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: 4543345543637294045, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: -1390578221345131218, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: 6691779317953993471, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: 6039200789479613015, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: 3081322175981314027, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: 2355631736263085849, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: 7934937062997666665, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: 4912838934013996454, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: 1969367764082099603, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: -2846098294033857616, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: -2355699241298792016, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  - {fileID: -3859127635705722981, guid: c137bcaa30238fa48bf9aaaf20dba642, type: 3}
+  keyCode: 0
+--- !u!225 &-2589508386622716768
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535088329935585752}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
