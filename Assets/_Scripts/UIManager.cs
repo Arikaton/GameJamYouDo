@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject exitWindow;
     [SerializeField] private GameObject exitDaemon1;
     [SerializeField] private GameObject exitDaemon2;
+    [SerializeField] private GameObject fadeInOutScreen;
+    [SerializeField] private GameObject startPanel;
 
     private void Awake()
     {
@@ -21,6 +23,11 @@ public class UIManager : MonoBehaviour
             main = this;
         else
             Destroy(gameObject);
+    }
+
+    public void StartGame()
+    {
+        startPanel.SetActive(false);
     }
 
     public void Reset()
@@ -62,6 +69,30 @@ public class UIManager : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void FadeInFadeOut()
+    {
+        StartCoroutine(FadeInOutCor());
+    }
+
+    IEnumerator FadeInOutCor()
+    {
+        fadeInOutScreen.SetActive(true);
+        CanvasGroup alpha = fadeInOutScreen.GetComponent<CanvasGroup>();
+        for (float i = 0; i < 1; i += 0.01f)
+        {
+            alpha.alpha = i;
+            yield return new WaitForSeconds(1 / 100);
+        }
+        GameManager.main.ReachTop();
+        yield return new WaitForSeconds(0.5f);
+        for (float i = 1; i > 0; i -= 0.01f)
+        {
+            alpha.alpha = i;
+            yield return new WaitForSeconds(1 / 100);
+        }
+        fadeInOutScreen.SetActive(false);
     }
 
     public void LoseQTE()

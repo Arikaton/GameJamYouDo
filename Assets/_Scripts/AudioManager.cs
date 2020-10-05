@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip successSound;
     [SerializeField] private AudioClip failSound;
     [SerializeField] private AudioClip dialogSound;
+    [SerializeField] private AudioClip demonSound;
+    [SerializeField] private AudioClip itemSound;
 
     private AudioSource _audioSource;
 
@@ -31,6 +33,11 @@ public class AudioManager : MonoBehaviour
         PlayOneShot(successSound);
     }
 
+    public void PlayItemSound()
+    {
+        PlayOneShot(itemSound);
+    }
+
     public void PlayFailSound()
     {
         PlayOneShot(failSound);
@@ -41,8 +48,14 @@ public class AudioManager : MonoBehaviour
         PlayOneShot(dialogSound);
     }
 
+    public void PlayDemonSound()
+    {
+        PlayOneShot(demonSound);
+    }
+
     void PlayOneShot(AudioClip clip)
     {
         AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
     }
+    
 }

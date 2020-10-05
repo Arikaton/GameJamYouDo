@@ -15,6 +15,7 @@ public class FailDevel : MonoBehaviour
     {
         if (other.tag == "Player" && PlayerController.main.IsPlaying && !wasActive)
         {
+            AudioManager.main.PlayDemonSound();
             devel.SetActive(true);
             StartCoroutine(StartPlayerFail());
             wasActive = true;
@@ -23,10 +24,14 @@ public class FailDevel : MonoBehaviour
 
     IEnumerator StartPlayerFail()
     {
+        PlayerController.main.StartAutoPlay();
         QTEManager.main.Reset();
-        develDialog.SetActive(true);
         develAnimator.SetBool("HandsUp", true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        develDialog.SetActive(true);
+        AudioManager.main.PlayeDialogSound();
+        yield return new WaitForSeconds(2f);
+        PlayerController.main.StopAutoPlay();
         GameManager.main.LoseQTE();
         devel.SetActive(false);
     }

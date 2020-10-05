@@ -78,6 +78,7 @@ public class NPCManager : MonoBehaviour
         if (!textIsShowing)
         {
             StartCoroutine(AutoStopDialog());
+            AudioManager.main.PlayeDialogSound();
             replicaPanel.SetActive(true);
             replicaText.text = replica;
             textIsShowing = true;

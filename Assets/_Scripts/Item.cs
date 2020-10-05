@@ -16,6 +16,7 @@ public class Item : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
+                AudioManager.main.PlayItemSound();
                 ActionAfterInteract();
             }
         }

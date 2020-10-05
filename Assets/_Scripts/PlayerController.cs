@@ -15,7 +15,23 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool pushValun = false;
 
-    private bool isPlaying = true;
+    private bool isPlaying = false;
+
+    private bool autoPlayActive = false;
+
+    public void FreezePlayer()
+    {
+        rb.isKinematic = true;
+        rb.velocity = Vector2.zero;
+        isPlaying = false;
+        animator.Rebind();
+    }
+
+    public void UnfreezePlayer()
+    {
+        rb.isKinematic = false;
+        isPlaying = true;
+    }
     
     private void Awake()
     {
@@ -36,9 +52,24 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    public void StartAutoPlay()
+    {
+        autoPlayActive = true;
+    }
+
+    public void StopAutoPlay()
+    {
+        autoPlayActive = false;
+    }
+
     void Update()
     {
         if (!isPlaying) return;
+        if (autoPlayActive)
+        {
+            rb.velocity = new Vector2(speed, rb.velocity.y);
+            return;
+        }
         float horizontal = Input.GetAxis("Horizontal");
         float newPlayerSpeed = horizontal * speed;
         rb.velocity = new Vector2(newPlayerSpeed, rb.velocity.y);
@@ -71,7 +102,8 @@ public class PlayerController : MonoBehaviour
         GetComponent<CheckPointController>().Reset();
         valun.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         valun.GetComponent<Rigidbody2D>().angularVelocity = 0;
-        valun.transform.position = (Vector2)transform.position + new Vector2(3, -0.4f);
+        valun.transform.position = (Vector2)transform.position + new Vector2(GameManager.main.currentLocationIsLeft ? 3 : -3, -0.4f);
+        animator.Rebind();
     }
 
     private void Flip(float newPlayerSpeed)

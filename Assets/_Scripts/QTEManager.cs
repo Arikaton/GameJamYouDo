@@ -9,7 +9,8 @@ public class QTEManager : MonoBehaviour
 {
     public static QTEManager main;
 
-    [SerializeField] private Transform parent;
+    [SerializeField] private Transform leftParent;
+    [SerializeField] private Transform rightParent;
     [SerializeField] private QTEButton buttonPrefab;
     [SerializeField] private KeyCode[] allowedKeys;
     Queue<QTEButton> qteButtons;
@@ -35,6 +36,7 @@ public class QTEManager : MonoBehaviour
 
     IEnumerator SpawnQTEButtons(QTEData qteData)
     {
+        var parent = GameManager.main.currentLocationIsLeft ? leftParent : rightParent;
         qteButtonCount = qteData.orderedKeys.Length;
         isQTEWave = true;
         qteButtons = new Queue<QTEButton>();
@@ -52,6 +54,7 @@ public class QTEManager : MonoBehaviour
 
     public void Reset()
     {
+        var parent = GameManager.main.currentLocationIsLeft ? leftParent : rightParent;
         Debug.Log("Reset QTE");
         IsPlaying = false;
         isQTEWave = false;
