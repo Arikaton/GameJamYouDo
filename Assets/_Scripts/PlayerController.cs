@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController main;
+    
     [SerializeField] private float speed;
     [SerializeField] private Animator animator;
     [SerializeField] private Collider2D collider;
@@ -14,6 +16,14 @@ public class PlayerController : MonoBehaviour
     private bool pushValun = false;
 
     private bool isPlaying = true;
+
+    private void Awake()
+    {
+        if (main == null)
+            main = this;
+        else
+            Destroy(gameObject);
+    }
 
     public bool IsPlaying
     {
@@ -63,7 +73,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<CheckPointController>().Reset();
         valun.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         valun.GetComponent<Rigidbody2D>().angularVelocity = 0;
-        valun.transform.position = (Vector2)transform.position + new Vector2(5, 0);
+        valun.transform.position = (Vector2)transform.position + new Vector2(3, -0.4f);
     }
 
     private void Flip(float newPlayerSpeed)

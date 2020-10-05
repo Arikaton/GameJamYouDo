@@ -14,9 +14,9 @@ TagManager:
   - 
   - 
   - Valun
-  - 
-  - 
-  - 
+  - NPC_1
+  - Ground
+  - NPC_2
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 810015341
+    locked: 0
+  - name: Middle
+    uniqueID: 1368458437
+    locked: 0
+  - name: ForeGround
+    uniqueID: 860331575
+    locked: 0
+  - name: UI
+    uniqueID: 821943715
     locked: 0

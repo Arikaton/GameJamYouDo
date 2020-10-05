@@ -65,13 +65,13 @@ public class QTEButton : MonoBehaviour
                 return 0;
             case KeyCode.T:
                 return 1;
-            case KeyCode.A:
+            case KeyCode.M:
                 return 2;
             case KeyCode.L:
                 return 3;
             case KeyCode.I:
                 return 4;
-            case KeyCode.D:
+            case KeyCode.Y:
                 return 5;
             case KeyCode.E:
                 return 6;

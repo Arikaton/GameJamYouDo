@@ -33,4 +33,9 @@ public class UIManager : MonoBehaviour
     {
         losePopUp.SetActive(true);
     }
+
+    public void AddItem(ItemType itemType)
+    {
+        
+    }
 }

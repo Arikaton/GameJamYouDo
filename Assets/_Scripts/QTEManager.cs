@@ -36,8 +36,6 @@ public class QTEManager : MonoBehaviour
         int buttonCount = qteData.orderedKeys.Length;
         for (int i = 0; i < buttonCount; i++)
         {
-            if (!IsPlaying) StopAllCoroutines();
-            
             QTEButton newButton = Instantiate(buttonPrefab, parent, true);
             qteButtons.Enqueue(newButton);
             newButton.SetKeyAndDefineSprite(qteData.orderedKeys[i]);
@@ -48,12 +46,13 @@ public class QTEManager : MonoBehaviour
 
     public void Reset()
     {
+        Debug.Log("Reset QTE");
+        IsPlaying = false;
+        StopAllCoroutines();
         for (int i = 0; i < parent.childCount; i++)
         {
             Destroy(parent.GetChild(i).gameObject);
         }
-
-        IsPlaying = false;
     }
     
     private void Update()

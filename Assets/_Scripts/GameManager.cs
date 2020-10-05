@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
         _playerController.IsPlaying = false;
         deathAnim.SetActive(true);
         uiManager.LoseQTE();
-        qteManger.IsPlaying = false;
     }
 }
 
