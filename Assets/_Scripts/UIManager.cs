@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject endAnim;
     [SerializeField] private GameObject hintAnim;
     [SerializeField] private GameObject fader;
+    [SerializeField] private GameObject subtitle;
 
     private void Awake()
     {
@@ -94,11 +95,14 @@ public class UIManager : MonoBehaviour
 
     IEnumerator EndGameCor()
     {
+        GameManager.main.gameIsStarted = false;
+        PlayerController.main.IsPlaying = false;
+        PlayerController.main.FreezePlayer();
         ShowEndAnim();
         ShowFader();
         yield return new WaitForSeconds(4.5f);
         HideFader();
-        Application.Quit();
+        subtitle.SetActive(true);
     }
 
     public void FadeInFadeOut()
