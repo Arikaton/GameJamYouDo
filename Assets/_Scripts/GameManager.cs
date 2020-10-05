@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
         deathAnim.SetActive(true);
         uiManager.LoseQTE();
     }
+
+    
 }
 
 public enum GameState

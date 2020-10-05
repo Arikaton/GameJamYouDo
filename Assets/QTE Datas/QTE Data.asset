@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526247ad2d1156544a8ed8ba19bc6112, type: 3}
   m_Name: QTE Data
   m_EditorClassIdentifier: 
-  orderedKeys: 7100000077000000740000007600000065000000
+  orderedKeys: 710000007700000074000000760000006d000000
   minTimeBetweenSpawn: 0.6
   maxTimeBetweenSpawn: 1.2

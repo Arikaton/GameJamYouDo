@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private GameObject qteHolder;
     [SerializeField] private GameObject losePopUp;
+    [SerializeField] private GameObject keyItem;
+    [SerializeField] private GameObject paperItem;
+    [SerializeField] private GameObject exitWindow;
 
     private void Awake()
     {
@@ -23,6 +26,14 @@ public class UIManager : MonoBehaviour
         qteHolder.SetActive(true);
         losePopUp.SetActive(false);
     }
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            exitWindow.SetActive(true);
+        }
+    }
 
     public void LoseQTE()
     {
@@ -36,6 +47,13 @@ public class UIManager : MonoBehaviour
 
     public void AddItem(ItemType itemType)
     {
-        
+        if (itemType == ItemType.Key)
+        {
+            keyItem.SetActive(true);
+        }
+        else
+        {
+            paperItem.SetActive(true);
+        }
     }
 }

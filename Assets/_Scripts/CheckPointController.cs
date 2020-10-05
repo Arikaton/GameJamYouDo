@@ -12,9 +12,9 @@ public class CheckPointController : MonoBehaviour
         lastCheckpoint = transform.position;
     }
 
-    public void SetCheckPoint()
+    public void SetCheckPoint(Transform checkTransform)
     {
-        lastCheckpoint = transform.position;
+        lastCheckpoint = checkTransform.position;
     }
 
     public void Reset()
