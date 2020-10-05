@@ -16,6 +16,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject exitDaemon2;
     [SerializeField] private GameObject fadeInOutScreen;
     [SerializeField] private GameObject startPanel;
+    [SerializeField] private GameObject startAnim;
+    [SerializeField] private GameObject endAnim;
+    [SerializeField] private GameObject hintAnim;
 
     private void Awake()
     {
@@ -35,7 +38,16 @@ public class UIManager : MonoBehaviour
         qteHolder.SetActive(true);
         losePopUp.SetActive(false);
     }
-    
+
+    public void ShowStartAnim() => startAnim.SetActive(true);
+
+    public void HideStartAnim() => startAnim.SetActive(false);
+
+    public void ShowEndAnim() => endAnim.SetActive(true);
+
+    public void ShowHintAnim() => hintAnim.SetActive(true);
+
+    public void HideHintAnim() => hintAnim.SetActive(false);
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -67,8 +79,15 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Application.Quit();
+            StartCoroutine(EndGameCor());
         }
+    }
+
+    IEnumerator EndGameCor()
+    {
+        ShowEndAnim();
+        yield return new WaitForSeconds(4f);
+        Application.Quit();
     }
 
     public void FadeInFadeOut()

@@ -65,8 +65,18 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        StartCoroutine(StartGameCor());
+    }
+
+    IEnumerator StartGameCor()
+    {
+        uiManager.ShowStartAnim();
+        yield return new WaitForSeconds(4.5f);
+        uiManager.HideStartAnim();
         PlayerController.main.IsPlaying = true;
         uiManager.StartGame();
+        yield return new WaitForSeconds(1);
+        uiManager.ShowHintAnim();
     }
 }
 

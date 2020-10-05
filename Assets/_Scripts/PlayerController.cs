@@ -13,10 +13,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform valun;
     
     private Rigidbody2D rb;
+    private AudioSource _audioSource;
     private bool pushValun = false;
 
     private bool isPlaying = false;
-
+    private bool isWalking = false;
     private bool autoPlayActive = false;
 
     public void FreezePlayer()
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void StartAutoPlay()
@@ -67,11 +69,21 @@ public class PlayerController : MonoBehaviour
         if (!isPlaying) return;
         if (autoPlayActive)
         {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
+            rb.velocity = new Vector2(GameManager.main.currentLocationIsLeft ? speed : -speed, rb.velocity.y);
             return;
         }
         float horizontal = Input.GetAxis("Horizontal");
         float newPlayerSpeed = horizontal * speed;
+        if (Mathf.Abs(newPlayerSpeed) > 0.1f && !isWalking)
+        {
+            isWalking = true;
+            _audioSource.Play();
+        } else if (Mathf.Abs(newPlayerSpeed) <= 0.1f && isWalking)
+        {
+            isWalking = false;
+            _audioSource.Stop();
+        }
+        
         rb.velocity = new Vector2(newPlayerSpeed, rb.velocity.y);
 
         animator.SetFloat("Speed", Mathf.Abs(newPlayerSpeed));
