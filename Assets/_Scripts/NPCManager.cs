@@ -31,7 +31,7 @@ public class NPCManager : MonoBehaviour
 
     private void Update()
     {
-        if (!PlayerController.main.IsPlaying) return;
+        if (!GameManager.main.gameIsStarted) return;
         rb.velocity = new Vector2(speed, rb.velocity.y);
         if (valun.position.y > transform.position.y + .4f)
         {

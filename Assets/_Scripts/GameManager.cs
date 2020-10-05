@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform rightStart;
 
     public bool currentLocationIsLeft = true;
+    public bool gameIsStarted = false;
 
     private void Awake()
     {
@@ -71,10 +72,13 @@ public class GameManager : MonoBehaviour
     IEnumerator StartGameCor()
     {
         uiManager.ShowStartAnim();
+        uiManager.ShowFader();
         yield return new WaitForSeconds(4.5f);
         uiManager.HideStartAnim();
+        uiManager.HideFader();
         PlayerController.main.IsPlaying = true;
         uiManager.StartGame();
+        gameIsStarted = true;
         yield return new WaitForSeconds(1);
         uiManager.ShowHintAnim();
     }

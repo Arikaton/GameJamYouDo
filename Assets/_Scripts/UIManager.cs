@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject startAnim;
     [SerializeField] private GameObject endAnim;
     [SerializeField] private GameObject hintAnim;
+    [SerializeField] private GameObject fader;
 
     private void Awake()
     {
@@ -46,6 +47,14 @@ public class UIManager : MonoBehaviour
     public void ShowEndAnim() => endAnim.SetActive(true);
 
     public void ShowHintAnim() => hintAnim.SetActive(true);
+
+    public void ShowFader() => fader.SetActive(true);
+
+    public void HideFader()
+    {
+        fader.GetComponent<Animator>().Rebind();
+        fader.SetActive(false);
+    }
 
     public void HideHintAnim() => hintAnim.SetActive(false);
     private void Update()
@@ -86,7 +95,9 @@ public class UIManager : MonoBehaviour
     IEnumerator EndGameCor()
     {
         ShowEndAnim();
-        yield return new WaitForSeconds(4f);
+        ShowFader();
+        yield return new WaitForSeconds(4.5f);
+        HideFader();
         Application.Quit();
     }
 
